@@ -1,0 +1,22 @@
+﻿@using Svetosavlje.Interfaces.Classes;
+@model Svetosavlje.Models.PastirModel
+
+
+@if (Model.orderedList == true)
+{ 
+    <ol>
+        @foreach (PitanjeInfo q in Model.PastirQuestions)
+        {
+            <li>@Html.ActionLink(q.Naslov, "PitanjeOdgovor", "Pastir", new { id = q.ID }, null)</li>
+        }
+    </ol>
+}
+else
+{ 
+    <ul>
+        @foreach (PitanjeInfo q in Model.PastirQuestions)
+        {
+            <li>@Html.ActionLink(q.Naslov, "PitanjeOdgovor", "Pastir", new { id = q.ID }, null)</li>
+        }
+    </ul> 
+}

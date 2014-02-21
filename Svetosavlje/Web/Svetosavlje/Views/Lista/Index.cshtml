@@ -1,0 +1,30 @@
+﻿@using System.Globalization;
+@using System.Web.Configuration;
+@using Svetosavlje.Models;
+@using Svetosavlje.Interfaces.Classes;
+@model Svetosavlje.Models.ListaModel
+
+@{
+    ViewBag.Title = "Архива Листе";
+}
+<style>
+    .underline {border-bottom:solid 1px black; }
+</style>
+
+<div class="row-fluid">
+    <div class="span12">
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink("Светосавље.орг", "Index", "Home")<span class="divider">/</span></li>
+            <li class="active">Архива Листе</li>
+        </ul>
+        <div style="margin: 0 auto; text-align: center; width: 60%;">
+            <h1>Архива Листе</h1>
+        </div>
+        <!-- /uvod, slike otaca-->
+    </div>
+    <!-- /row fluid -->
+
+    <div>Paging goes here...</div>
+    
+    @Html.Action("ListaTopics","Lista", new {rows = Convert.ToInt32(WebConfigurationManager.AppSettings["ListaArhiva_TopicsPerPage"].ToString()), boolList = false})
+</div>

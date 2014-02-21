@@ -1,0 +1,55 @@
+﻿@using System.Globalization;
+@using Svetosavlje.Models;
+@using Svetosavlje.Data_Layer
+@model Svetosavlje.Models.PastirModel
+@{
+    ViewBag.Title = "Питање пастиру";
+}
+<!-- Glavni sadrzaj -->
+<div class="row-fluid">
+    <div class="span12">
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink("Светосавље.орг", "Index", "Home")<span class="divider">/</span></li>
+            <li class="active">Питање пастиру</li>
+        </ul>
+        <div style="margin: 0 auto; text-align: center; width: 60%;">
+            <h1>
+                Питање пастиру</h1>
+            <p>
+                <strong>Драга браћо и сестре,</strong></p>
+            <p>
+                Молимо вас да у молитвама поменете оце који се труде да осветле наш пут у необјашњиво
+                Царство Божије у вечности, да одговоре са тачке гледишта нашег вечног живота и спасења,
+                а не по пролазној и променљивој "мудрости овога света". (Упореди I Кор. 3,19) Нека
+                Господ нашим свештеницима и свима који га траже, подари разума и снаге, да написано
+                буде корисно душама нашим.</p>
+            @Html.Partial("_Svestenici")
+        </div>
+        <!-- /uvod, slike otaca-->
+    </div>
+    <!-- /row fluid -->
+    <div class="row-fluid">
+        <div class="span4">
+            <h4>
+                Неколико последњих питања:</h4>
+            @Html.Action("PastirQuestions", "Pastir", new { topicID = 0, rows = 12, orderedList = true })
+        </div>
+        <!-- /span4, poslednji odgovori -->
+        <div class="span4">
+            <h4>
+                Све Теме</h4>
+            <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+            <link href="~/Content/responsive.css" rel="stylesheet" type="text/css" />
+            @Html.Action("SveTemeSaPitanjima", "Pastir")
+            <script src="http://code.jquery.com/jquery-latest.js"></script>
+            <script src="~/Content/bootstrap.min.js"></script>
+        </div>
+        <!-- /span4 teme navigacija-->
+                <div class="span4">
+        @Html.Partial("_PretragaNovoPitanje")
+        </div>
+        <!-- /span4 pretraga pitanja, postavi pitanje-->
+    </div>
+    <!-- /row-fluid -->
+</div>
+<!-- /container fluid -->
